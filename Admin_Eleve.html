@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Admin.css">
+    <script src="tableau.js"></script>
 </head>
 <body>
     <header>
@@ -13,5 +14,28 @@
         <button><a href="Admin_Menu.html">Revenir au Menu</a></button>
         <button>Se déconnecter</button>
     </header>
+    <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Classe</th>
+            <th>Promotions</th>
+            <th>Matières suivies</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mael</td>
+            <td>Groupe 01</td>
+            <td>Ing2</td>
+            <td>Mathématiques, Informatique</td>
+            <td><button onclick="supprimerLigne(this)">Supprimer</button></td>
+            <td><button>Modifier</button></td>
+          </tr>
+        </tbody>
+    </table>
+    
+    <button>Ajouter un élève</button>
 </body>
 </html>
