@@ -50,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($userFound) {
-        // Redirect to the new page
-        header('Location: pagescolarité.html');
+        // modifier la location a la page de scolarité d'eva
+        header('Location: pagescolarité.php');
         exit;
     } else {
     }
