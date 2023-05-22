@@ -32,29 +32,39 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+$database ="bddecemyskill";
+$db_handle = mysqli_connect('localhost','root','root');
+$db_found = mysqli_select_db($db_handle, $database);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = test_input($_POST['email']);
     $password = test_input($_POST['mdp']);
 
-    $userData = array(
-        array('email' => 'scolarite@sco.com', 'password' => '123456'),
-    );
-
-    $userFound = false;
-    foreach ($userData as $user) {
-        if ($user['email'] === $email && $user['password'] === $password) {
-            $userFound = true;
-            break;
+    $requete = "SELECT Role FROM Utilisateurs WHERE Email = '$email'";
+    $resultats = mysqli_query($db_handle, $requete);
+    if($resultats){
+        if(mysqli_num_rows($resultats) > 0){
+            $row = mysqli_fetch_assoc($resultats);
+            $role = $row['Role'];
+            if ($role == 'prof') {
+                header("Location: page_professeur.php"); // remplacer par la page prof d'Eva
+            } 
+            elseif ($role == 'eleve') {
+                header("Location: page_eleve.php"); // remplacer par la page eleve d'Amine
+            } 
+            elseif ($role == 'scolarite') {
+                header("Location: page_scolarite.php"); // remplacer par la page scolarite
+            } 
+            else {
+                echo "Rôle inconnu pour l'e-mail $email";
+            }
+        } 
+        else {
+            echo "Aucun utilisateur trouvé avec l'e-mail $email";
         }
-    }
-
-    if ($userFound) {
-        // modifier la location a la page de scolarité d'eva
-        header('Location: pagescolarité.php');
-        exit;
-    } else {
+    } 
+    else {
+        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle);
     }
 }
-
 ?>
