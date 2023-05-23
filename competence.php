@@ -1,4 +1,4 @@
-<link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
+<link href="Admin.css" rel="stylesheet" type="text/css" />
 <?php require ('./Global/Header.php');?>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
