@@ -8,7 +8,6 @@ require('./Global/Header.php'); ?>
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 
     <div id="nav">
@@ -27,9 +26,8 @@ require('./Global/Header.php'); ?>
 
     <div id="section">
         <?php 
-        echo $_SESSION['Idutilisateur'];
         if ($db_found) {
-            $sql = "SELECT * FROM utilisateurs WHERE Idutilisateur = '$_SESSION[Idutilisateur]'";
+            $sql = "SELECT * FROM utilisateurs WHERE Role = 'etudiant' AND Idutilisateur = '$_SESSION[Idutilisateur]'";
             $result = mysqli_query($db_handle, $sql);
             while ($row = mysqli_fetch_assoc($result)) { ?>
 

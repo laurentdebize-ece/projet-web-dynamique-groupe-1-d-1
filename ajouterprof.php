@@ -48,6 +48,7 @@ $nom = isset($_POST["Nom"]) ? $_POST["Nom"] : "";
 $email = isset($_POST["Email"]) ? $_POST["Email"] : "";
 $mdp = isset($_POST["Mdp"]) ? $_POST["Mdp"] : "";
 
+
 if (isset($_POST["button1"])) {
 
 if ($prenom == "") {
@@ -69,6 +70,7 @@ if ($mdp == "") {
     $erreur = "Le champ Mot de passe est vide. Veuillez le renseigner. <br>";
     echo "Attention : " . $erreur;
 }
+
 
 if ($prenom && $nom && $email && $mdp){
 
