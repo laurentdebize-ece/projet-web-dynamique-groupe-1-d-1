@@ -7,7 +7,6 @@
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 <a href="ajoutermatiere.php"><input type="submit" name="button1" value="Ajouter"></a>
 
@@ -27,14 +26,12 @@ function afficherMatieres($db_handle) {
     if (mysqli_num_rows($result) > 0) {
         echo "<h2>Liste des matières :</h2>";
         echo "<table>";
-        echo "<tr><th>ID</th><th>Nom</th><th>Volume Horaire</th><th>ID Utilisateur</th><th>Action</th></tr>";
+        echo "<tr><th>Nom</th><th>Volume Horaire</th><th>Action</th></tr>";
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row["Idmatiere"] . "</td>";
-            echo "<td>" . $row["Nom"] . "</td>";
+            echo "<td>" . $row["Noms"] . "</td>";
             echo "<td>" . $row["VolumeHoraire"] . "</td>";
-            echo "<td>" . $row["Idutilisateur"] . "</td>";
             echo "<td><button class='btn-supprimer' data-id='" . $row["Idmatiere"] . "'>Supprimer</button></td>";
             echo "<td><a href='modifiermatiere.php?id=" . $row["Idmatiere"] . "'>Modifier</a></td>";
             echo "</tr>";
@@ -87,3 +84,5 @@ mysqli_close($db_handle);
         });
     });
 </script>
+
+<?php require('./Global/Footer.php');?>

@@ -3,11 +3,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="PAEleve.php">Acceuil</a>
+          <a class="nav-link active" aria-current="page" href="menu.php">Acceuil</a>
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 <?php
 if (isset($_GET["id"])) {
@@ -26,7 +25,7 @@ if (isset($_GET["id"])) {
     $row = mysqli_fetch_assoc($result);
 
     if ($row) {
-        $nomMatiere = $row["Nom"];
+        $nomMatiere = $row["Noms"];
         $volumeHoraireMatiere = $row["VolumeHoraire"];
     } else {
         echo "Matière introuvable.";
@@ -78,3 +77,5 @@ if (isset($_POST["modifier"])) {
     mysqli_close($db_handle);
 }
 ?>
+
+<?php require('./Global/Footer.php');?>

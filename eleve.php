@@ -3,11 +3,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="PAEleve.php">Acceuil</a>
+          <a class="nav-link active" aria-current="page" href="menu.php">Acceuil</a>
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 <a href="ajoutereleve.php"><input type="submit" name="button1" value="Ajouter"></a>
 
@@ -25,7 +24,7 @@ function afficherUtilisateurs($db_handle) {
     $result = mysqli_query($db_handle, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<h2>Liste des utilisateurs :</h2>";
+        echo "<h2>Liste des étudiants :</h2>";
         echo "<table>";
         echo "<tr><th>ID</th><th>Prénom</th><th>Nom</th><th>Email</th><th>Mot de passe</th><th>Rôle</th><th>Action</th></tr>";
 
@@ -89,3 +88,5 @@ mysqli_close($db_handle);
         });
     });
 </script>
+
+<?php require('./Global/Footer.php');?>

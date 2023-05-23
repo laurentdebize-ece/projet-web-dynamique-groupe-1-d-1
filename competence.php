@@ -3,11 +3,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="PAEleve.php">Acceuil</a>
+          <a class="nav-link active" aria-current="page" href="menu.php">Acceuil</a>
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 <a href="ajoutercompetence.php"><input type="submit" name="button1" value="Ajouter"></a>
 
@@ -21,20 +20,21 @@ if (!$db_found) {
 }
 
 function afficherCompetences($db_handle) {
-    $sql = "SELECT * FROM Competences";
+    $sql = "SELECT * FROM Competences JOIN matiere";
     $result = mysqli_query($db_handle, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         echo "<h2>Liste des compétences :</h2>";
         echo "<table>";
-        echo "<tr><th>ID</th><th>Description</th><th>Titre</th><th>ID Matière</th><th>Action</th></tr>";
+        echo "<tr><th>ID</th><th>Description</th><th>Titre</th><th>ID Matière</th></tr>";
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $row["IdCompetences"] . "</td>";
-            echo "<td>" . $row["Description"] . "</td>";
+            echo "<td>" . $row["Descriptions"] . "</td>";
             echo "<td>" . $row["Titre"] . "</td>";
             echo "<td>" . $row["Idmatiere"] . "</td>";
+            echo "<td>" . $row["Noms"] . "</td>";
             echo "</tr>";
         }
 
@@ -47,4 +47,6 @@ function afficherCompetences($db_handle) {
 afficherCompetences($db_handle);
 mysqli_close($db_handle);
 ?>
+
+<?php require('./Global/Footer.php');?>
 

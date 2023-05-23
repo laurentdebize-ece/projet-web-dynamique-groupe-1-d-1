@@ -3,11 +3,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="PAEleve.php">Acceuil</a>
+          <a class="nav-link active" aria-current="page" href="menu.php">Acceuil</a>
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 <form action="ajouterprof.php" method="post">
     <table border="1">
@@ -98,3 +97,5 @@ if ($prenom && $nom && $email && $mdp){
 }
 mysqli_close($db_handle);
 ?>
+
+<?php require('./Global/Footer.php');?>
