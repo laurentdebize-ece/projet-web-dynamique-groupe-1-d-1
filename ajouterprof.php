@@ -1,3 +1,5 @@
+<link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
+<?php require ('./Global/Header.php');?>
 <form action="ajouterprof.php" method="post">
     <table border="1">
         <tr>
@@ -25,7 +27,6 @@
 </form>
 
 <?php
-// Connexion à la base de données
 $database = "BDDECEMYSKILL";
 $db_handle = mysqli_connect('localhost', 'root', 'root');
 $db_found = mysqli_select_db($db_handle, $database);
@@ -64,7 +65,6 @@ if ($mdp == "") {
 if ($prenom && $nom && $email && $mdp){
 
     if ($db_found) {
-        // Vérification si l'utilisateur existe déjà
         $sql = "SELECT * FROM Utilisateurs WHERE Email = '$email'";
         $result = mysqli_query($db_handle, $sql);
 
@@ -73,13 +73,12 @@ if ($prenom && $nom && $email && $mdp){
         } else if (mysqli_num_rows($result) != 0) {
             echo "<p>L'utilisateur existe déjà.</p>";
         } else {
-            // Ajout de l'utilisateur
             $sql = "INSERT INTO Utilisateurs (Prenom, Nom, Email, Mdp, Role) VALUES ('$prenom', '$nom', '$email', '$mdp', 'professeur')";
 
             if (mysqli_query($db_handle, $sql)) {
                 echo "L'utilisateur a été ajouté avec succès.";
                 mysqli_close($db_handle);
-                header("Location: prof.php"); // Redirection vers la page utilisateurs.php
+                header("Location: prof.php"); 
                 exit();
             } else {
                 echo "Erreur lors de l'ajout de l'utilisateur : " . mysqli_error($db_handle);

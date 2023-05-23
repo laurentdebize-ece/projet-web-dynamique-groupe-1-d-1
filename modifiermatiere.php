@@ -1,12 +1,9 @@
 <link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
-<?php require('Header.php'); ?>
-
+<?php require ('./Global/Header.php');?>
 <?php
-// Vérification de l'ID de la matière à modifier
 if (isset($_GET["id"])) {
     $idMatiere = $_GET["id"];
 
-    // Connexion à la base de données
     $database = "BDDECEMYSKILL";
     $db_handle = mysqli_connect('localhost', 'root', 'root');
     $db_found = mysqli_select_db($db_handle, $database);
@@ -15,12 +12,10 @@ if (isset($_GET["id"])) {
         die("Erreur de connexion à la base de données.");
     }
 
-    // Récupération des informations de la matière
     $sql = "SELECT * FROM Matiere WHERE Idmatiere = '$idMatiere'";
     $result = mysqli_query($db_handle, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    // Vérification si la matière existe
     if ($row) {
         $nomMatiere = $row["Nom"];
         $volumeHoraireMatiere = $row["VolumeHoraire"];
@@ -49,12 +44,10 @@ if (isset($_GET["id"])) {
 </form>
 
 <?php
-// Vérification de la soumission du formulaire de modification
 if (isset($_POST["modifier"])) {
     $nom = $_POST["nom"];
     $volumeHoraire = $_POST["volumeHoraire"];
 
-    // Connexion à la base de données
     $database = "BDDECEMYSKILL";
     $db_handle = mysqli_connect('localhost', 'root', 'root');
     $db_found = mysqli_select_db($db_handle, $database);
@@ -63,12 +56,10 @@ if (isset($_POST["modifier"])) {
         die("Erreur de connexion à la base de données.");
     }
 
-    // Mise à jour des informations de la matière
     $sql = "UPDATE Matiere SET Nom = '$nom', VolumeHoraire = '$volumeHoraire' WHERE Idmatiere = '$idMatiere'";
 
     if (mysqli_query($db_handle, $sql)) {
         mysqli_close($db_handle);
-        // Redirection vers la page matiere.php
         header("Location: matiere.php");
         exit();
     } else {

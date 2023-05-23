@@ -1,3 +1,5 @@
+<link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
+<?php require ('./Global/Header.php');?>
 <form action="ajoutermatiere.php" method="post">
     <table border="1">
         <tr>
@@ -21,7 +23,6 @@
 </form>
 
 <?php
-// Connexion à la base de données
 $database = "BDDECEMYSKILL";
 $db_handle = mysqli_connect('localhost', 'root', 'root');
 $db_found = mysqli_select_db($db_handle, $database);
@@ -36,7 +37,6 @@ if (isset($_POST["button1"])) {
     $idUtilisateur = $_POST['Idutilisateur'];
 
     if ($db_found) {
-        // Vérification si la matière existe déjà
         $sql = "SELECT * FROM Matiere WHERE Nom = '$nom'";
         $result = mysqli_query($db_handle, $sql);
 
@@ -45,13 +45,12 @@ if (isset($_POST["button1"])) {
         } else if (mysqli_num_rows($result) != 0) {
             echo "<p>La matière existe déjà.</p>";
         } else {
-            // Ajout de la matière
             $sql = "INSERT INTO Matiere (Nom, VolumeHoraire, Idutilisateur) VALUES ('$nom', '$volumeHoraire', '$idUtilisateur')";
 
             if (mysqli_query($db_handle, $sql)) {
                 echo "La matière a été ajoutée avec succès.";
                 mysqli_close($db_handle);
-                header("Location: matiere.php"); // Redirection vers la page matiere.php
+                header("Location: matiere.php");
                 exit();
             } else {
                 echo "Erreur lors de l'ajout de la matière : " . mysqli_error($db_handle);
