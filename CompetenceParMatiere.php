@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start(); 
+require('./Global/Header.php'); 
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="Fichier.css" rel="stylesheet" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Compétences Elève</title>
-</head>
+?>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="PAEleve.php">Acceuil</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<body>
-    <?php
+<?php
+    
     //identifier le nom de base de données
     $database = "bddecemyskill";
     //connectez-vous dans votre BDD
 //Rappel : votre serveur = localhost | votre login = root | votre mot de pass = '' (rien)
-    $db_handle = mysqli_connect('localhost', 'root', '');
+    $db_handle = mysqli_connect('localhost', 'root', 'root');
     $db_found = mysqli_select_db($db_handle, $database);
 
     $id = $_GET['id'];
@@ -57,7 +60,7 @@
                                 <?php echo $row['Titre'] . '<br>'; ?>
                             </td>
                             <td>
-                                <?php echo $row['Description'] . '<br>'; ?>
+                                <?php echo $row['Descriptions'] . '<br>'; ?>
                             </td>
                             <td>
                             <form action="EleveCompetence.php" method="post">

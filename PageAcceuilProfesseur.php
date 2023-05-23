@@ -2,6 +2,7 @@
 <link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
 
 <?php require ('./Global/Header.php');?>
+</nav>
 
     <h2>Page d'acceuil professeur</h2>
 

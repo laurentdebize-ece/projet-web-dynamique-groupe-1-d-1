@@ -10,7 +10,6 @@
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 
 <?php

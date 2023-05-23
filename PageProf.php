@@ -9,7 +9,6 @@ require('./Global/Header.php');
         </li>
       </ul>
     </div>
-  </div>
 </nav>
 
 <?php
