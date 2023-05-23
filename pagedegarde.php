@@ -71,4 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle);
     }
 }
+mysqli_close($db_handle);
 ?>
