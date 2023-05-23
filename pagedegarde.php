@@ -20,9 +20,7 @@
             </form>
         </div>
     </div>
-    <footer>© 2023 Groupe-1-D, Samuel SIDOUN Mael BESREST Eva AFONSO Amine DAGHIGHI</footer>
-</body>
-</html>
+    
 
 <?php
 
@@ -42,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = test_input($_POST['email']);
     $password = test_input($_POST['mdp']);
 
-    $requete = "SELECT * FROM Utilisateurs WHERE Email = '$email' AND Mdp = '$password'";
+    $requete = "SELECT * FROM Utilisateurs JOIN matiere WHERE Email = '$email' AND Mdp = '$password'";
     $resultats = mysqli_query($db_handle, $requete);
     if($resultats){
         if(mysqli_num_rows($resultats) > 0){
@@ -73,3 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 mysqli_close($db_handle);
 ?>
+
+<?php require('./Global/Footer.php');?>
