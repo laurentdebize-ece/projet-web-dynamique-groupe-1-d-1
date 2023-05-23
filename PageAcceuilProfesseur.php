@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
 
 <?php require ('./Global/Header.php');?>

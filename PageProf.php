@@ -1,4 +1,7 @@
-<?php require('./Global/Header.php'); ?>
+<?php session_start(); 
+require('./Global/Header.php'); 
+
+?>
 
 <?php
 
@@ -28,7 +31,8 @@ if ($promo == "") {
         $promo = $_GET['promo'];
     }
 }
-if ($classe == "Classe 1" && $promo == "Promo 1") {
+
+if ($classe && $promo) {
     if ($db_found) {
         $sql = "SELECT * FROM competences
                 JOIN matiere ON matiere.Idmatiere = competences.Idmatiere
@@ -137,7 +141,7 @@ if (isset($_POST["Ajouter"])) {
             echo "<p>Cette compétence existe deja.</p>";
         } else {
             // Ajouter la compétence dans la base de données
-            $sql = "INSERT INTO competences (Descriptions , Titre, Idmatiere) VALUES ('$description', '$titre', '1')";
+            $sql = "INSERT INTO competences (Descriptions , Titre, Idmatiere) VALUES ('$description', '$titre', '$_SESSION[Idmatiere]')";
             $result = mysqli_query($db_handle, $sql);
             echo "<p>Ajout réussi.</p>";
         }
@@ -156,7 +160,6 @@ if (isset($_POST['titre']) && isset($_POST['description'])) {
 if (isset($_POST["Supprimer"])) {
     $valeur = isset($_POST["Supprimer"]) ? $_POST["Supprimer"] : "";
     if ($db_found) {
-        $id = isset($_POST["Supprimer"]);
         $sql = "DELETE FROM competences WHERE competences.IdCompetences = '$valeur'";
         $result = mysqli_query($db_handle, $sql);
         echo "<p>Suppression reussie.</p>";

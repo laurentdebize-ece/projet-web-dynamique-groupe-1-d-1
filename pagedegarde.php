@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,14 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = test_input($_POST['email']);
     $password = test_input($_POST['mdp']);
 
-    $requete = "SELECT Role FROM Utilisateurs WHERE Email = '$email'";
+    $requete = "SELECT * FROM Utilisateurs WHERE Email = '$email' AND Mdp = '$password'";
     $resultats = mysqli_query($db_handle, $requete);
     if($resultats){
         if(mysqli_num_rows($resultats) > 0){
             $row = mysqli_fetch_assoc($resultats);
+            $_SESSION['Idutilisateur'] = $row['Idutilisateur'];
+            $_SESSION['Idmatiere'] = $row['Idmatiere'];
             $role = $row['Role'];
             if ($role == 'prof') {
-                header("Location: page_professeur.php"); // remplacer par la page prof d'Eva
+                header("Location: PageAcceuilProfesseur.php"); // remplacer par la page prof d'Eva --> fait
             } 
             elseif ($role == 'eleve') {
                 header("Location: page_eleve.php"); // remplacer par la page eleve d'Amine
