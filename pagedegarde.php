@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: PageAcceuilProfesseur.php"); // remplacer par la page prof d'Eva --> fait
             } 
             elseif ($role == 'etudiant') {
-                header("Location: page_eleve.php"); // remplacer par la page eleve d'Amine
+                header("Location: PAEleve.php"); // remplacer par la page eleve d'Amine --> fait
             } 
             elseif ($role == 'scolarite') {
-                header("Location: page_scolarite.php"); // remplacer par la page scolarite
+                header("Location: menu.php"); // remplacer par la page scolarite mael --> fait
             } 
             else {
                 echo "Rôle inconnu pour l'e-mail $email";

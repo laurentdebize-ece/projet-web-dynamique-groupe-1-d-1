@@ -13,7 +13,7 @@
     <h1>Matières</h1>
     <div class="container">
         <button onclick="window.location.href='PAEleve.php'">Mon Compte</button>
-        <button onclick="window.location.href='PageDeConnexion.php'">Acceuil</button>
+        <button onclick="window.location.href='pagedegarde.php'">Acceuil</button>
         <button onclick="window.location.href='EleveCompetence.php'">Compétences</button>
     </div>
     <?php
