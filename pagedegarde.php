@@ -33,6 +33,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
 $database ="bddecemyskill";
 $db_handle = mysqli_connect('localhost','root','root');
 $db_found = mysqli_select_db($db_handle, $database);
@@ -49,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['Idutilisateur'] = $row['Idutilisateur'];
             $_SESSION['Idmatiere'] = $row['Idmatiere'];
             $role = $row['Role'];
-            if ($role == 'prof') {
+            if ($role == 'professeur') {
                 header("Location: PageAcceuilProfesseur.php"); // remplacer par la page prof d'Eva --> fait
             } 
-            elseif ($role == 'eleve') {
+            elseif ($role == 'etudiant') {
                 header("Location: page_eleve.php"); // remplacer par la page eleve d'Amine
             } 
             elseif ($role == 'scolarite') {
