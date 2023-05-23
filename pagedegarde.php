@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['Idutilisateur'] = $row['Idutilisateur'];
             $_SESSION['Idmatiere'] = $row['Idmatiere'];
             $role = $row['Role'];
-            if ($role == 'prof') {
+            if ($role == 'professeur') {
                 header("Location: PageAcceuilProfesseur.php"); // remplacer par la page prof d'Eva --> fait
             } 
             elseif ($role == 'etudiant') {
