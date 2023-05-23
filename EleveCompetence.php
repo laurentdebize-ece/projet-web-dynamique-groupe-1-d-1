@@ -13,7 +13,7 @@
     <h1>Omnes MySkills</h1>
     <div id="nav">
         <button onclick="window.location.href='EleveMatiere.php'">Matière</button>
-        <button onclick="window.location.href='PageDeConnexion.php'">Acceuil</button>
+        <button onclick="window.location.href='pagedegarde.php'">Acceuil</button>
         <button onclick="window.location.href='PAEleve.php'">Mon Compte</button>
     </div>
     <?php
