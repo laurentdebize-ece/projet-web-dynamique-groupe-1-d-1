@@ -1,6 +1,5 @@
 <link href="PageAccueilPorfesseur.css" rel="stylesheet" type="text/css" />
-
-<?php require ('Header.php');?>
+<?php require ('./Global/Header.php');?>
 <body>
     <h1>
         <p class="Bienvenue">Bienvenue sur votre compte amdinistrateur</p>
