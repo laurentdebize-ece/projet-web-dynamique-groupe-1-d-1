@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse; /* Pour fusionner les bordures de cellules */
+    width: 100%;
+    max-width: 800px; /* Taille maximale du tableau */
+    margin: 0 auto; /* Centre le tableau dans la page */
+    background-color: #8287ef4d; /* Couleur de fond */
+    color: #333; /* Couleur de texte */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    font-size: 16px; /* Taille de la police de caractères */
+  }
+  
+  td {
+    padding: 10px; /* Espace entre le contenu de la cellule et les bords */
+    text-align: center; /* Alignement du texte */
+    border: 1px solid #ccc; /* Bordure autour de chaque cellule */
+  }
+
+  h1 {
+    font-family: Arial, sans-serif; /* Police du texte de l'élément h1 (Arial dans cet exemple) */
+    font: size px;
+    text-align: left;
+    color: #0000ff; /* Couleur du texte de l'élément h1 (rouge dans cet exemple) */
+  }
+  
+  button {
+    background-color: #002fff; /* Couleur de fond du bouton (rouge dans cet exemple) */
+    color: #FFFFFF; /* Couleur du texte du bouton (blanc dans cet exemple) */
+    width: 300px;
+    height: 85px;
+    font-size: 30px;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+  
+  
+  
+  
+  
