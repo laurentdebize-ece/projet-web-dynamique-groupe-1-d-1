@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: PAEleve.php"); // remplacer par la page eleve d'Amine --> fait
             } 
             elseif ($role == 'scolarite') {
-                header("Location: menu.html"); // remplacer par la page scolarite mael --> fait
+                header("Location: menu.php"); // remplacer par la page scolarite mael --> fait
             } 
             else {
                 echo "Rôle inconnu pour l'e-mail $email";
